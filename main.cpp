@@ -2,17 +2,17 @@
 
 int main() 
 {
-    //window dimentions
+    //window dimensions
     int width = 500;
-    int hight = 500;
-    InitWindow(width, hight, "Axe Game");
+    int height = 500;
+    InitWindow(width, height, "Axe Game");
 
     //circle coordinates
     int circle_x = 250;
     int circle_y = 250;
     int circleRadius = 25;
 
-    //circle adges 
+    //circle edges 
     int l_circle_x = circle_x - circleRadius;
     int r_circle_x = circle_x + circleRadius;
     int u_circle_y = circle_y - circleRadius;
@@ -85,7 +85,7 @@ int main()
             {
                 circle_y -= step; 
             }
-            if (IsKeyDown(KEY_DOWN) && - b_circle_y > - hight)
+            if (IsKeyDown(KEY_DOWN) && - b_circle_y > - height)
             {
                 circle_y += step;
             }
@@ -94,7 +94,7 @@ int main()
 
             // axe movement
             axe_y += direction;
-            if (axe_y > (hight - axe_lenth) || axe_y < 0)
+            if (axe_y > (height - axe_lenth) || axe_y < 0)
             {
                 direction = -direction;
             }
