@@ -1,9 +1,8 @@
 #include "raylib.h"
-#include <cstdio>
 
 int main() 
 {
-    // windows dimentions
+    //window dimentions
     int width = 500;
     int hight = 500;
     InitWindow(width, hight, "Axe Game");
@@ -12,6 +11,7 @@ int main()
     int circle_x = 250;
     int circle_y = 250;
     int circleRadius = 25;
+
     //circle adges 
     int l_circle_x = circle_x - circleRadius;
     int r_circle_x = circle_x + circleRadius;
@@ -22,6 +22,7 @@ int main()
     int axe_lenth = 50;
     int axe_x = 250;
     int axe_y = 0;
+
     // axe edges
     int l_axe_x = axe_x;
     int r_axe_x = axe_x + axe_lenth;
@@ -49,14 +50,15 @@ int main()
             DrawText("Game Over!", 150, 250,40, BLACK);
         } 
         else {
-            // Game logic begins 
+            /*
+            * Game logic begins
+            */
 
             // update the edges 
             l_circle_x = circle_x - circleRadius;
             r_circle_x = circle_x + circleRadius;
             u_circle_y = circle_y - circleRadius;
             b_circle_y = circle_y + circleRadius;
-
             l_axe_x = axe_x;
             r_axe_x = axe_x + axe_lenth;
             u_axe_y = axe_y;
@@ -69,7 +71,7 @@ int main()
                     (l_axe_x <= r_circle_x) && 
                     (r_axe_x >= l_circle_x);
 
-
+            //circle more area
             DrawCircle(circle_x, circle_y, circleRadius, YELLOW);
             if ( IsKeyDown(KEY_RIGHT) && r_circle_x < width )
             {
@@ -90,13 +92,15 @@ int main()
 
             DrawRectangle(axe_x, axe_y , axe_lenth, axe_lenth, PURPLE);
 
+            // axe movement
             axe_y += direction;
             if (axe_y > (hight - axe_lenth) || axe_y < 0)
             {
                 direction = -direction;
             }
-
-            // Game logic ends
+            /*
+            * Game logic ends
+            */
         }
 
         EndDrawing(); 
